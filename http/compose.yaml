@@ -2,8 +2,10 @@ version: '3'
 
 services:
   web:
-    build: .
+    build: denoland/deno:1.42.4
     ports:
       - "8000:8000"
     volumes:
       - .:/app
+    working_dir: /app
+    command: ["deno", "run", "--allow-all", "main.ts"]
